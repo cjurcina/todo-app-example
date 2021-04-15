@@ -1,4 +1,5 @@
 import React from 'react';
+import { todoStore } from '../todoStore';
 
 export const CreateTodo = ({ onCreate }) => {
     const [ text, setText ] = React.useState("");
@@ -8,14 +9,15 @@ export const CreateTodo = ({ onCreate }) => {
     }, []);
 
     const handleCreate = React.useCallback(e => {
-        e.preventDefault();
+        //e.preventDefault();
 
         // To create a todo, we must add it to the todoStore.
         // take a look at todoStore.js, and determine how to do add
         // a todo
-        throw new Error("Not yet implemented");
-
-        setText("");
+        //throw new Error("Not yet implemented");
+        todoStore.addTodo(text)
+        
+        
     }, [onCreate, setText, text]);
 
     return(
